@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Switching popup</title>
+    <link rel = "StyleSheet" href = "CSS-Style.css">
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        margin:0;
+        width:150px;
+      }
+      .Buttons {  
+        display: inline-block;  
+        border-radius: 4px;  
+        background-color: #e4e3e3;  
+        border: none;    
+        text-align: center;  
+        font-size: 100%;  
+        padding: 20px;
+        padding-top:10px;
+        padding-bottom:10px;    
+        transition: all 0.5s;  
+        cursor: pointer;  
+        margin-right: 8px;
+        width: 125px;
+      }
+      .Buttons span {  
+        cursor: pointer;  
+        display: inline-block;  
+        position: relative;  
+        transition: 0.5s;
+      }
+      .Buttons span:after {
+        content: '\00bb';
+        position: absolute;  
+        opacity: 0;  
+        top: 0;  
+        right: -20px; 
+        transition: 0.5s;
+      }
+      .Buttons:hover span {  
+        padding-right: 25px;
+      }
+      .Buttons:hover span:after {  
+        opacity: 1;  
+        right: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class='Navigation'>
+      <a id ='ListName' class='ListName'>NS Switcher</a>
+    </div>
+    <button id="ListButton" class = 'Buttons content'>
+      <span>
+        List
+      </span>
+    </button>
+    <button id="AllButton" class = 'Buttons content'>
+        <span>
+          All
+        </span>
+    </button>
+    <button id="ChooseListButton" class = 'Buttons content'>
+        <span>
+          Choose<br>List
+        </span>
+    </button>
+    <button id="SetupNationParameters" class = 'Buttons content'>
+      <span>
+        Create<br>Nation<br>Settings
+      </span>
+  </button>
+  </body>
+  <script src = "popup.js">
+  </script>
+</html>

@@ -1,0 +1,57 @@
+let counterFlip = 0;
+//starts the counter at 0
+
+
+
+var HotKeys = function(event){
+    if (event.key === '2') {
+        //if the "2" key is pressed
+        if (counterFlip < 5){
+            //as long as the counter is below 5(5 cards haven't been flipped)
+            event.preventDefault();
+            try{
+            document.getElementsByClassName("back")[counterFlip].click();
+            //try and flip a card(try to stop errors when a pack isn't open)
+            counterFlip = counterFlip+1;
+            //increase the counter
+            }catch(err){}
+        }else if(counterFlip < 10){
+            //as long as the counter is below 10(5 cards haven't been junked)
+            event.preventDefault();
+            //prevents usual keypress
+            try{
+            document.getElementsByClassName("button deckcard-junk-button danger ")[counterFlip-5].click();
+            //try and junk a card
+            counterFlip = counterFlip +1;
+            //increase the counter by 1
+            }catch(err){}
+        }else{
+            document.onkeydown = undefined;
+            document.onkeyup = undefined;
+            document.getElementById('nextInput').remove();
+            document.getElementById('backInput').remove();
+            //stops users doing another actions by removing buttons and keybinds
+            //once all the cards have been junked
+            document.location = '/page=deck';
+            //go back to the deck page
+        }
+    }else if(event.key == '1'){
+        //if the user clicks '1'
+        event.preventDefault();
+        try{
+            document.getElementsByClassName("button lootboxbutton")[0].click();
+            //try and open a pack
+            document.onkeydown = undefined;
+            document.onkeyup = undefined;
+            document.getElementById('nextInput').remove();
+            document.getElementById('backInput').remove();
+            //disables all hotkeys and buttons
+        }catch(err){}
+    }else if(event.key == 'd'){
+        //if user clicks 'd'
+        counterFlip = counterFlip+1;
+        //increase the counter(can be used to skip a junk)
+    }
+};
+
+document.onkeyup = HotKeys;

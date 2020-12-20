@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html>
+    <head>
+        <style>
+            body {
+                font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+                font-size: 100%;
+                margin:0;
+            }
+            #status {
+                /* avoid an excessively wide status text */
+                white-space: pre;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 400px;
+            }
+            .err{
+                font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+                font-size: 80%;
+            }
+            .card {
+                flex:1;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                padding: 8px;
+                text-align: center;
+                background-color: #f1f1f1;
+                margin-top:4px;
+            }
+            .back{
+                position: absolute;
+                top:1px;
+                left:3px;
+                background: none;
+                color: white;
+                border: none;
+                font-size: 20px;   
+            }
+            .back:hover{
+                opacity:0.8;
+            }
+            .ListName{
+                color: #f2f2f2;
+                text-align: center;
+                display:inline-block;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            .Navigation{
+                text-align:center;
+                margin: 0;
+                background-color: #333;
+                overflow: hidden;
+            }
+            .content{
+                margin-left:16px;
+                margin-right: 16px;
+                margin-top: 4px;
+                margin-bottom:8px;
+            }
+            .close {
+                display: inline-flex;
+                position: relative;
+                bottom:10px;
+                left:60px;
+                background: none;
+                color: black;
+                border: none;
+                font-size: 20px;
+            }
+            .close:hover {
+                color: red;
+            }
+            .paragraphing{
+                width:50px;
+                display:inline-flex
+            }
+            .extend {
+                display: inline-flex;
+                position: relative;
+                top:10px;
+                left:36px;
+                background: none;
+                color: black;
+                border: none;
+                font-size: 20px;
+                opacity: 0.5;
+            }
+            .extend:hover {
+                opacity: 1;
+            }
+            button.blue {
+                color: #444444;
+                background: #F3F3F3;
+                border: 1px #DADADA solid;
+                padding: 5px 10px;
+                margin-top:8px;
+                border-radius: 2px;
+                font-weight: bold;
+                font-size: 9pt;
+                outline: none;
+            }
+
+            button.blue:hover {
+                border: 1px #C6C6C6 solid;
+                box-shadow: 1px 1px 1px #EAEAEA;
+                color: #333333;
+                background: #F7F7F7;
+            }
+
+            button.blue:active {
+                box-shadow: inset 1px 1px 1px #DFDFDF;   
+            }
+        </style>
+    </head>
+    <script src = 'CreateList.js'></script>
+    <body>
+        <div class = 'Navigation'>
+            <a id = 'ListName' class= 'ListName'>Lists</a>
+        </div>
+        <button id = 'BackButton' class = 'back'>&#x2b8c</button>
+        <form class ="content">
+            <span style ='font-size:70%'>List Name:</span>
+            <input type = text id = AddList name = List autocomplete = 'off'> </input>
+        </form>
+        <button id = ListButton class = "content blue">
+            Create List
+        </button>
+        <span id = error style = 'color:red' class = 'err'></span>
+        <div id = 'ShowDiv' class ="content">
+            <script src = 'ShowList.js'></script>
+        </div>
+        <script src = 'ListEventListener.js'></script>
+    </body>
+</html>

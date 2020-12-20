@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Create Nation Settings</title>
+    <link rel = "StyleSheet" href = "CSS-Style.css">
+    <style>
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+            margin:0;
+        }
+        button.blue {
+            color: #444444;
+            background: #F3F3F3;
+            border: 1px #DADADA solid;
+            padding: 5px 10px;
+            margin-top:8px;
+            border-radius: 2px;
+            font-weight: bold;
+            font-size: 9pt;
+            outline: none;
+        }
+
+        button.blue:hover {
+            border: 1px #C6C6C6 solid;
+            box-shadow: 1px 1px 1px #EAEAEA;
+            color: #333333;
+            background: #F7F7F7;
+        }
+
+        button.blue:active {
+            box-shadow: inset 1px 1px 1px #DFDFDF;   
+        }
+        .back{
+            position: absolute;
+            top:1px;
+            left:3px;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 20px;   
+        }
+        .back:hover{
+            opacity:0.8;
+        }
+        .InputMargins{
+                color: #f2f2f2;
+                text-align: center;
+                display:inline-block;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+    </style>
+  </head>
+  <body>
+    <div class = 'Navigation'>
+        <a id = 'Title' class= 'InputMargins'>Settings</a>
+    </div>
+    <button id = 'BackButton' class = 'back'>&#x2b8c</button>
+    <div class = "content">
+        <form id = "SettingsForm">
+            <span style ='font-size:70%'>Nation Name:</span>
+            <input type = text id = Name name = NationName autocomplete = 'off'> </input>
+            <span style ='font-size:70%'>Starting Number:</span>
+            <input type = text id = StartingPosition name = StartingNumber autocomplete = 'off'> </input>
+            <span style ='font-size:70%'>Currency:</span>
+            <input type = text id = Currency name = Currency autocomplete = 'off'> </input>
+            <span style ='font-size:70%'>Animal:</span>
+            <input type = text id = Animal name = List autocomplete = 'off'> </input>
+            <span style ='font-size:70%'>Motto:</span>
+            <input type = text id = Slogan name = List autocomplete = 'off'> </input>
+            <span style ='font-size:70%'>E-mail:</span>
+            <input type = text id = email name = List autocomplete = 'off'> </input>
+            <span style ='font-size:70%'>Password:</span>
+            <input type = password id = Password name = List autocomplete = 'off'> </input>
+        </form>
+    </div>
+    <button id = SettingsButton class = "content blue">
+        Change Settings
+    </button>
+    <script src = "CreateNationSettings.js"></script>
+  </body>
+</html>

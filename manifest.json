@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+  "name": "NS Switcher",
+  "version": "0.6",
+  
+  "browser_action": {
+    "default_icon": "NS.png",
+	"default_popup": "popup.html"
+  },
+	
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.nationstates.net/*","https://cdnjs.cloudflare.com/ajax/libs/xlsx/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://www.nationstates.net/cgi-bin/*","https://www.nationstates.net/page=create_nation1","https://www.nationstates.net/page=create_nation","https://www.nationstates.net/page=enact_dilemma/*"],
+        "js": ["Body.js"]
+      },
+      {
+        "matches": ["https://www.nationstates.net/page=deck","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "js": ["Pack.js","Body.js"]
+      },
+      {
+        "matches": ["https://www.nationstates.net/page=dilemmas/*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "js": ["IssueQuickAnswer.js","Body.js"] 
+      },
+      {
+        "matches": ["https://www.nationstates.net/page=enact_dilemma/*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "js": ["ReturnToIssues.js"] 
+      },
+      {
+        "matches": ["https://www.nationstates.net/page=create_nation","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*","https://www.nationstates.net/page=create_nation1"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "js": ["CreateNationAid.js"]         
+      }
+    ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net; object-src 'self'"
+}

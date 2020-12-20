@@ -1,0 +1,27 @@
+  #status {
+    /* avoid an excessively wide status text */
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 400px;
+  }
+  .ListName{
+    color: #f2f2f2;
+    text-align: center;
+    display:inline-block;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .Navigation{
+    text-align:center;
+    margin: 0;
+    background-color: #333;
+    overflow: hidden;
+  }
+  .content{
+    margin-left: 12px;
+    margin-right: 16px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
