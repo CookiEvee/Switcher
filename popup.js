@@ -1,3 +1,9 @@
+/* 
+This is the main page for the popup, and has all of the buttons to navigate around the popup
+Each button takes the popup to a different page.
+Pages: List creation, Adding a nation to storage, Choosing a list, Settings
+*/
+
 let buttonCreateList = document.getElementById("ListButton");
 buttonCreateList.addEventListener("click",list)
 //Adds an event listener for if the button to move to list is activated.

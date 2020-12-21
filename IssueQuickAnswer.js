@@ -1,3 +1,10 @@
+/* 
+This program is dedicated to creating a keybind for answering issues on the /page=dilemmas page.
+When on the dilemmas page, the first issue will be found and using it's number a button is created that takes the user
+to the enact_dilemma page for that issue, this answers the issue.
+The keybind is set to '1' by default.
+*/
+
 var Link;
 //declares Link for use in functions
 try{

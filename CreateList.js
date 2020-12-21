@@ -1,3 +1,13 @@
+/* 
+This program creates new lists by, when the submit button is clicked the following happens:
+1 - The Link List is gotten, and the database is checked to see if there is already a list with the name asked for
+2 - The list is then created and the link for the list set to '' at the start.
+*/
+
+let buttonList = document.getElementById("ListButton");
+buttonList.addEventListener("click",AddList)
+//Adds a listener for when the create list button is clicked
+
 //this function creates a New List
 function AddList(){
     var LinkList = JSON.parse(localStorage.getItem('Links'));

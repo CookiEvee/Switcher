@@ -1,3 +1,10 @@
+/* 
+This code is the code that adds nations names and passwords into storage for use in lists.
+It does this by: when the submit button is clicked, gettings the list of all the nations, then adding it as an element.
+It then sends the list back(after making sure the list exists or making a new one etc...)
+There is a back button to navigate the menu and a mass input button to go to the page that allows mass input of nations.
+*/
+
 var AddButton = document.getElementById("AddButton");
 AddButton.addEventListener("click",addNation);
 //gets the button to add a nation to storage and adds a listener for when it is clicked.

@@ -1,7 +1,13 @@
+/* 
+This program is for opening, flipping and junking packs
+When '1' is clicked a pack is opened.
+Then whenever 2 is clicked, for the first 5 clicks a card is flipped, for the next 5 clicks a card is junked.
+'d' can be used to skip a flip or a junk
+This works by clicking the card and/or the junk button
+*/
+
 let counterFlip = 0;
 //starts the counter at 0
-
-
 
 var HotKeys = function(event){
     if (event.key === '2') {
@@ -55,3 +61,4 @@ var HotKeys = function(event){
 };
 
 document.onkeyup = HotKeys;
+//sets up the keybind

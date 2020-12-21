@@ -1,3 +1,12 @@
+/* 
+This program is for Showing which lists have been created, with the option of expanding them.
+
+This works by scanning all the keys in the database and removing the non-List ones.
+For each list it then adds it to a table with a button to expand and a button to delete
+The expand button, sets a variable to the list(so the new page knows which list was clicked) and then changes page.
+also has a back button for navigation
+*/
+
 let ListNames = Object.keys(localStorage);
 //gets the lists from storage
 if(ListNames.indexOf('all')!== -1){

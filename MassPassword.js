@@ -1,3 +1,11 @@
+/*  
+This program is for the Mass input of nations and password into the program.
+It does this by sticking to a structure of CookiEvee Cookipass (not actual password)
+it then scours through the text input and for each pair of nation and password adds it to the all list
+it then adds the new list back to storage.
+Also has a back button for navigation
+*/
+
 document.getElementById('SubmitMass').addEventListener('click',addUsers);
 //adds an event listener to see if the Mass input button is clicked
 document.getElementById('BackButton').addEventListener('click', Back);

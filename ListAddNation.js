@@ -1,3 +1,12 @@
+/* 
+This program adds nations to list by, when the submit button is clicked, getting the name of the input
+It then cross-checks this with the All-list that contains all of the nations inputted
+If it is in the All-list the name is added to the list.
+
+There is also an input for adding a Link to the list, that defines which page the nation goes after being logged in.
+Add some buttons for navigation (Back and Mass Input)
+*/
+
 document.getElementById('AddNationButton').addEventListener('click',addNation);
 //adds a listener for when the user attempts to add a nation to the list
 document.getElementById('AddLinkButton').addEventListener('click',AddLink);

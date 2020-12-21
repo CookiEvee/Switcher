@@ -1,3 +1,12 @@
+/* 
+This is the main code for switching nations. It is run on all nationstates page, bar a few exceptions.
+It adds 2 buttons to the NationStates page, one saying next and one saying back, with each button having a keybind
+when one of these buttons are clicked a message is sent to the background script requesting information about-
+-either the next or the previous nation in the list(the list is chosen in a different piece of code)
+that  data is then sent back to this program and the code then logs in to the respective nation.
+There is also a keybind to change the page,which is 'c' to the upload_flag page.
+*/
+
 var number;
 var parsedStorage;
 //declares these variables so they can be used in functions 
@@ -128,11 +137,14 @@ var HotKeyDown = function(event) {
         nextInput.remove();
         document.location = '/page=deck';
         //if the user presses the grave key, then the page is changed to the cards deck page.
+    }else if (event.key === 'c'){
+        document.location = '/page=upload_flag'
+        //if the user presses the c key then the page is changed to the upload flag page.
     }
 };
 
 document.onkeydown = HotKeyDown
-
+//sets up the keybinds
 switchForm.appendChild(logInput);
 switchForm.appendChild(nameInput);
 switchForm.appendChild(passInput);

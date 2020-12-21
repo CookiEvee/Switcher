@@ -1,3 +1,11 @@
+/* 
+This program is for adding a nation to a list
+It does this by scanning through the mass input, seperated by new lines.
+And for each nation, checks if it is in the All list, and if it is it adds it to the List.
+Once done it sends the list back to localStorage.
+Also has a back button for navigation
+*/
+
 document.getElementById('SubmitMass').addEventListener('click', MassText);
 //adds an event listener for if the Mass Button is clicked
 document.getElementById('BackButton').addEventListener('click', Back);

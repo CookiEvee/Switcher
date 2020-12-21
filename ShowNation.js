@@ -1,3 +1,11 @@
+/* 
+This program is for showing all the nations in the all-list(all of the nations added to the extension)
+it does this by scanning through the all-list and for each nation adds a button to a created table
+with it's name and a delete button.
+When the delete button is clicked, the program scans through ALL of the lists for instances of it's name
+whenever it finds the name it removes that element.
+*/
+
 let AllList = JSON.parse(localStorage.getItem("all"));
 //gets the all list from storage
 let division = document.getElementById("ShowDiv");

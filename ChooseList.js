@@ -1,3 +1,10 @@
+/* 
+This code is the code by which a user chooses which list to use when logging in.
+it does this by creating a radio button array of the current lists in the database(by searching through the keys, removing the non-list ones)
+When a radio button is clicked, it's value is sent to storage as the list being used.
+There is also a back button for navigation.
+*/
+
 let ChosenList = localStorage.getItem('ChosenList');
 //finds the chosen list(current list)
 if (ChosenList === null){

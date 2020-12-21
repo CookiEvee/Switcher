@@ -1,7 +1,24 @@
+/* 
+This code is the background code for the extension.
+It receives messages from the content scripts and returns the appropriate information.
+1 - Finds the region name for new puppets to change the page to that region's page
+2 - Finds the region password to allow a nation to move into a region
+3 - Finds the Default information for creating a new nation
+4 - Finds the current list in which the user wishes to change nations, then finds the next or the previous nation
+in the list, dependent on which port was called, and then returns the information about the nation to the content
+script so it can be acted upon.
+*/
+
 chrome.runtime.onConnect.addListener(function(port){
     //connects and creates a port to transfer messages between the extension and content scripts
     port.onMessage.addListener(function(message) {
-        if (message.purpose){
+        if (port.name === 'Region'){
+            let RegionalList = JSON.parse(localStorage.getItem('Settings'));
+            port.postMessage(RegionalList.region);
+        }else if (port.name === 'MoveRegion'){
+            let RegionalList = JSON.parse(localStorage.getItem('Settings'));
+            port.postMessage(RegionalList.regionpassword);
+        }else if (message.purpose){
             let NationInput = JSON.parse(localStorage.getItem('Settings'));
             NationInput.start= parseInt(NationInput.start)+1;
             localStorage.setItem('Settings',JSON.stringify(NationInput)); 

@@ -1,3 +1,10 @@
+/* 
+This program Creates the list of nations to show on the list page so they can be deleted or just viewed
+it does this by first constructing the table,
+then getting the list of nations, and for each nation adding it's own element with a delete button
+the delete button removes it from the list.
+*/
+
 document.getElementById('ListName').innerHTML = localStorage.getItem('ListName');
 //makes the title of the page the current chosen list
 var CurrentList;

@@ -37,6 +37,16 @@
         "matches": ["https://www.nationstates.net/page=create_nation","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*","https://www.nationstates.net/page=create_nation1"],
         "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
         "js": ["CreateNationAid.js"]         
+      },
+      {
+        "matches": ["https://www.nationstates.net/nation=*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "js": ["MoveRegion.js"]         
+      },
+      {
+        "matches": ["https://www.nationstates.net/region=*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "js": ["MovingRegions.js"]         
       }
     ],
   "background": {
