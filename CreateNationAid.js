@@ -8,20 +8,13 @@ the inputs are then changed to be this information.
 
 if (document.location.href === 'https://www.nationstates.net/page=create_nation'){
     //if on the first create nation page
-    document.onkeyup = function(event){
-        //add a keybind
-        if (event.key === '1'){
-            //when the '1' key is pressed
-            document.getElementsByName("submitbutton")[0].click();
-            //click the button at the bottom of the page to skip the questionnare
-            document.onkeyup = undefined;
-            //stops more buttons being pressed
-        }
-    }
+    document.getElementsByName("submitbutton")[0].focus();
+    //focus on the next page button
 }else{
     //otherwise, if on the second create nation page
     var portsubmit = chrome.runtime.connect({name:"Create Nation"});
     //Creates a port to allow requests for information from localStorage
+    document.getElementsByName('create_nation')[0].focus();
 
     portsubmit.onMessage.addListener(function(message){
         //when the parameters are sent back
@@ -44,4 +37,10 @@ if (document.location.href === 'https://www.nationstates.net/page=create_nation'
     });
     portsubmit.postMessage({'purpose':'Create Nation'});
     //requests the nations parameters from the background script
+
+    document.onkeyup = function(event){
+        if (event.key === '1'){
+            document.getElementsByName('create_nation')[0].click();
+        }
+    }
 }

@@ -20,9 +20,9 @@ chrome.runtime.onConnect.addListener(function(port){
             port.postMessage(RegionalList.regionpassword);
         }else if (message.purpose){
             let NationInput = JSON.parse(localStorage.getItem('Settings'));
-            NationInput.start= parseInt(NationInput.start)+1;
-            localStorage.setItem('Settings',JSON.stringify(NationInput)); 
             port.postMessage(NationInput);
+            NationInput.start= String(parseInt(NationInput.start)+1);
+            localStorage.setItem('Settings',JSON.stringify(NationInput)); 
         }else{
             //creates a listener for when a the Body sends a message to try and switch nations.
             var NationDetails;

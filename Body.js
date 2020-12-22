@@ -137,9 +137,11 @@ var HotKeyDown = function(event) {
         nextInput.remove();
         document.location = '/page=deck';
         //if the user presses the grave key, then the page is changed to the cards deck page.
-    }else if (event.key === 'c'){
+    }else if (event.key === 'f'){
         document.location = '/page=upload_flag'
         //if the user presses the c key then the page is changed to the upload flag page.
+    }else if (event.key === 'r'){
+        document.location = '/page=create_nation';
     }
 };
 
