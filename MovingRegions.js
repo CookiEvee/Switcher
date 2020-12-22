@@ -2,15 +2,19 @@
 This program allows users to move regions by, when pressing 'm', sending a request for the region password.
 When that password is recieved back from the background script, it is then used to click the move region button
 */
-
-let form = document.getElementsByName('localid')[0].parentElement
-//creates a form to move regions
-
-var PasswordInput = document.createElement('input')
-PasswordInput.type = 'hidden';
-PasswordInput.name = 'password'
-form.appendChild(PasswordInput);
-//creates an input for the password
+try{
+    let form = document.getElementsByName('localid')[0].parentElement;
+    //creates a form to move regions
+    var PasswordInput = document.createElement('input')
+    PasswordInput.type = 'hidden';
+    PasswordInput.name = 'password'
+    //creates an input for the password
+    form.appendChild(PasswordInput);
+    //adds it to the form
+}catch(err){
+    let form = undefined;
+    //otherwise let the form be undefined
+}
 
 var portMove = chrome.runtime.connect({name:"MoveRegion"});
 //creates a port to get the password

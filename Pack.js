@@ -21,7 +21,7 @@ var HotKeys = function(event){
             counterFlip = counterFlip+1;
             //increase the counter
             }catch(err){}
-        }else if(counterFlip < 10){
+        }else if(counterFlip  > 4){
             //as long as the counter is below 10(5 cards haven't been junked)
             event.preventDefault();
             //prevents usual keypress
@@ -31,16 +31,7 @@ var HotKeys = function(event){
             counterFlip = counterFlip +1;
             //increase the counter by 1
             }catch(err){}
-        }else{
-            document.onkeydown = undefined;
-            document.onkeyup = undefined;
-            document.getElementById('nextInput').remove();
-            document.getElementById('backInput').remove();
-            //stops users doing another actions by removing buttons and keybinds
-            //once all the cards have been junked
-            document.location = '/page=deck';
-            //go back to the deck page
-        }
+        }           //go back to the deck page
     }else if(event.key == '1'){
         //if the user clicks '1'
         event.preventDefault();
