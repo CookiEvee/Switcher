@@ -114,7 +114,6 @@
             }
         </style>
     </head>
-    <script src = 'CreateList.js'></script>
     <body>
         <div class = 'Navigation'>
             <a id = 'ListName' class= 'ListName'>Lists</a>
@@ -124,12 +123,13 @@
             <span style ='font-size:70%'>List Name:</span>
             <input type = text id = AddList name = List autocomplete = 'off'> </input>
         </form>
-        <button id = ListButton class = "content blue">
+        <button id = 'ListButton' class = "content blue">
             Create List
         </button>
         <span id = error style = 'color:red' class = 'err'></span>
         <div id = 'ShowDiv' class ="content">
             <script src = 'ShowList.js'></script>
         </div>
+        <script src = 'CreateList.js'></script>
     </body>
 </html>
