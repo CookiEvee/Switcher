@@ -5,9 +5,6 @@ If there are still issues left it takes the user back to the dillemmas page, oth
 */
 
 window.onload = function(event){
-    if (document.getElementById('notificationnumber-issues').innerText !== '1'){
-        document.location = '/page=dilemmas'
-    }else{
-        window.location = '/page=deck'
-    }
+    //document.location = '/page=dilemmas/template-overall=none'
+    document.location = '/page=dilemmas'
 }
