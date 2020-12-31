@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "NS Switcher",
-  "version": "0.6",
+  "version": "0.7",
   
   "browser_action": {
     "default_icon": "NS.png",
@@ -15,7 +15,7 @@
     "content_scripts": [
       {
         "matches": ["https://www.nationstates.net/*","https://cdnjs.cloudflare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://www.nationstates.net/cgi-bin/*","https://www.nationstates.net/page=create_nation1","https://www.nationstates.net/page=create_nation","https://www.nationstates.net/page=enact_dilemma/*","https://www.nationstates.net/*/template-overall=none"],
+        "exclude_matches": ["https://www.nationstates.net/page=deck/card=*","https://www.nationstates.net/pages/api.html","https://www.nationstates.net/cgi-bin/*","https://www.nationstates.net/page=create_nation1","https://www.nationstates.net/page=create_nation","https://www.nationstates.net/page=enact_dilemma/*","https://www.nationstates.net/*/template-overall=none"],
         "js": ["Body.js"]
       },
       {
@@ -49,7 +49,7 @@
         "js": ["MovingRegions.js"]         
       },
       {
-        "matches": ["https://www.nationstates.net/page=deck/*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/page=deck/card=*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
         "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
         "js": ["PullEvent.js"]
       }

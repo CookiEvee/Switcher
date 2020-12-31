@@ -19,8 +19,8 @@ if (Link !== undefined){
     //finds what number the issue is
     let IssueForm = document.createElement('form');
     IssueForm.method = 'POST';
-    //IssueForm.action = '/page=enact_dilemma/dilemma='+IssueNumber+'/template-overall=none';
-    IssueForm.action = '/page=enact_dilemma/dilemma='+IssueNumber;
+    IssueForm.action = '/page=enact_dilemma/dilemma='+IssueNumber+'/template-overall=none';
+    //IssueForm.action = '/page=enact_dilemma/dilemma='+IssueNumber;
     //creates a form to submit the first option to the first issue available.
 
     var IssueButton = document.createElement('button');

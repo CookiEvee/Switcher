@@ -5,6 +5,6 @@ If there are still issues left it takes the user back to the dillemmas page, oth
 */
 
 window.onload = function(event){
-    //document.location = '/page=dilemmas/template-overall=none'
-    document.location = '/page=dilemmas'
+    document.location = '/page=dilemmas/template-overall=none'
+    //document.location = '/page=dilemmas'
 }

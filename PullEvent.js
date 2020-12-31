@@ -21,5 +21,7 @@ document.onkeyup = function(event){
         //stop other actions being done
         document.getElementById('change_price_button').click();
         //submit the new price
+    }else if (event.key === '`'){
+        document.location = '/page=deck';
     }
 };
