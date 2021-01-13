@@ -6,7 +6,7 @@ The page is then changed to that region
 
 document.onkeyup = function(event){
     //adds a keybind
-    if (event.key === 'm'){
+    if (event.key === config.move){
         //when 'm' is pressed
         document.onkeydown = undefined;
         document.onkeyup = undefined;

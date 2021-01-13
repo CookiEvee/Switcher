@@ -15,26 +15,18 @@ try{
 }
 if (Link !== undefined){
     //if there is an issue
-    let IssueNumber = Link.split('=')[2];
+    var IssueNumber = Link.split('=')[2];
     //finds what number the issue is
-    let IssueForm = document.createElement('form');
-    IssueForm.method = 'POST';
-    IssueForm.action = '/page=enact_dilemma/dilemma='+IssueNumber+'/template-overall=none';
-    //IssueForm.action = '/page=enact_dilemma/dilemma='+IssueNumber;
-    //creates a form to submit the first option to the first issue available.
 
     var IssueButton = document.createElement('button');
-    IssueButton.type = 'submit';
-    IssueButton.name = 'choice-0';
-    IssueButton.value = '1';
+    IssueButton.addEventListener('click',AnswerIssue)
     //Creates the button to answer the issue
 
-    document.body.appendChild(IssueForm);
-    IssueForm.appendChild(IssueButton);
-    //adds the button and the form to the document
+    document.body.appendChild(IssueButton);
+    //adds the button to the document
 } 
 document.onkeyup = function(event) {
-    if (event.key === '1') {
+    if (event.key === config.issue) {
         //if the user clicks the 1 key
         event.preventDefault();
         if (Link !== undefined){
@@ -58,5 +50,13 @@ document.onkeyup = function(event) {
         }
     }else if(event.key === '`'){
         document.location = '/page=deck';
+    }
+}
+
+function AnswerIssue(){
+    if (config.NoTemplate){
+        document.location = '/page=enact_dilemma/dilemma='+IssueNumber+'/choice-0=1/template-overall=none';
+    }else{
+        document.location = '/page=enact_dilemma/dilemma='+IssueNumber+'/choice-0=1';
     }
 }

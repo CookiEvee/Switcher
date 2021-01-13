@@ -26,7 +26,7 @@ portMove.onMessage.addListener(function(message){
 })
 document.onkeyup= function(event){
     //creates a keybind
-    if (event.key === 'm'){
+    if (event.key === config.move){
         //when the button 'm' is clicked
         document.onkeydown = undefined;
         document.onkeyup = undefined;

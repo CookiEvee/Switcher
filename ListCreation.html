@@ -20,6 +20,7 @@
                 font-size: 80%;
             }
             .card {
+                position:relative;
                 flex:1;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                 padding: 8px;
@@ -61,9 +62,9 @@
             }
             .close {
                 display: inline-flex;
-                position: relative;
-                bottom:10px;
-                left:60px;
+                position: absolute;
+                bottom:18px;
+                right:0px;
                 background: none;
                 color: black;
                 border: none;
@@ -78,9 +79,9 @@
             }
             .extend {
                 display: inline-flex;
-                position: relative;
-                top:10px;
-                left:36px;
+                position: absolute;
+                top:20px;
+                right:0px;
                 background: none;
                 color: black;
                 border: none;
@@ -111,6 +112,16 @@
 
             button.blue:active {
                 box-shadow: inset 1px 1px 1px #DFDFDF;   
+            }
+            .text {
+                max-width: 75px;
+                display:inline-block;
+            }
+
+            .overflow {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         </style>
     </head>

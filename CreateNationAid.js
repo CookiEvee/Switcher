@@ -37,10 +37,4 @@ if (document.location.href === 'https://www.nationstates.net/page=create_nation'
     });
     portsubmit.postMessage({'purpose':'Create Nation'});
     //requests the nations parameters from the background script
-
-    document.onkeyup = function(event){
-        if (event.key === '1'){
-            document.getElementsByName('create_nation')[0].click();
-        }
-    }
 }

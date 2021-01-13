@@ -112,7 +112,7 @@ backInput.innerHTML = 'Previous';
 
 var HotKeyDown = function(event) {
     //sets up a listener for if the user presses a key on their keyboard
-    if (event.key === '3') {
+    if (event.key === config.back) {
         event.preventDefault();
         document.onkeydown = undefined;
         document.onkeyup = undefined;
@@ -121,7 +121,7 @@ var HotKeyDown = function(event) {
         //stops the user pressing a different key
         backInput.click();
         //if the user presses 3, then the previous nation in the list is logged in
-    }else if (event.key === 'ArrowRight') {
+    }else if (event.key === config.next) {
         event.preventDefault();
         document.onkeydown = undefined;
         document.onkeyup = undefined;
@@ -130,18 +130,31 @@ var HotKeyDown = function(event) {
         //stops the user pressing a different key
         nextInput.click();
         //if the user presses the right arrow, then the next nation is logged in
-    }else if (event.key === '`'){
+    }else if (event.key === config.flag){
+        document.onkeydown = undefined;
+        document.onkeyup = undefined;
+        backInput.remove();
+        nextInput.remove();
+        document.location = '/page=upload_flag'
+        //if the user presses the c key then the page is changed to the upload flag page.
+    }else if (event.key === config.create){
+        document.onkeydown = undefined;
+        document.onkeyup = undefined;
+        backInput.remove();
+        nextInput.remove();
+        document.location = '/page=create_nation';
+    }else if (event.key === config.value){
+        document.onkeydown = undefined;
+        document.onkeyup = undefined;
+        backInput.remove();
+        nextInput.remove();
+        document.location = '/page=deck/value_deck=1'
+    }else if(event.key === config.deck){
         document.onkeydown = undefined;
         document.onkeyup = undefined;
         backInput.remove();
         nextInput.remove();
         document.location = '/page=deck';
-        //if the user presses the grave key, then the page is changed to the cards deck page.
-    }else if (event.key === 'f'){
-        document.location = '/page=upload_flag'
-        //if the user presses the c key then the page is changed to the upload flag page.
-    }else if (event.key === 'r'){
-        document.location = '/page=create_nation';
     }
 };
 

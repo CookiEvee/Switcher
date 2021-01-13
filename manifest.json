@@ -14,44 +14,49 @@
   ],
     "content_scripts": [
       {
-        "matches": ["https://www.nationstates.net/*","https://cdnjs.cloudflare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/*"],
         "exclude_matches": ["https://www.nationstates.net/page=deck/card=*","https://www.nationstates.net/pages/api.html","https://www.nationstates.net/cgi-bin/*","https://www.nationstates.net/page=create_nation1","https://www.nationstates.net/page=create_nation","https://www.nationstates.net/page=enact_dilemma/*","https://www.nationstates.net/*/template-overall=none"],
         "js": ["Body.js"]
       },
       {
-        "matches": ["https://www.nationstates.net/page=deck","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/page=deck"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
         "js": ["Pack.js"]
       },
       {
-        "matches": ["https://www.nationstates.net/page=dilemmas/*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/page=dilemmas/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
         "js": ["IssueQuickAnswer.js"] 
       },
       {
-        "matches": ["https://www.nationstates.net/page=enact_dilemma/*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/page=enact_dilemma/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
         "js": ["ReturnToIssues.js"] 
       },
       {
-        "matches": ["https://www.nationstates.net/page=create_nation","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*","https://www.nationstates.net/page=create_nation1"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/page=create_nation","https://www.nationstates.net/page=create_nation1"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
         "js": ["CreateNationAid.js"]         
       },
       {
-        "matches": ["https://www.nationstates.net/nation=*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/nation=*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
         "js": ["MoveRegion.js"]         
       },
       {
-        "matches": ["https://www.nationstates.net/region=*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/region=*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
         "js": ["MovingRegions.js"]         
       },
       {
-        "matches": ["https://www.nationstates.net/page=deck/card=*","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
-        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://cdnjs.cloudfare.com/ajax/libs/xlsx/*"],
+        "matches": ["https://www.nationstates.net/page=deck/card=*/season=*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html","https://www.nationstates.net/page=deck/card=*/season=*/gift=1"],
         "js": ["PullEvent.js"]
+      },
+      {
+        "matches": ["https://www.nationstates.net/*"],
+        "exclude_matches": ["https://www.nationstates.net/pages/api.html"],
+        "js": ["Config.js"]
       }
     ],
   "background": {

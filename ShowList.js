@@ -58,7 +58,7 @@ for (i of ListNames){
     //sets the class of the container
 
     paragraph.innerHTML = i;
-    paragraph.setAttribute("class", "paragraphing")
+    paragraph.setAttribute("class", "text overflow")
     //sets the inner text to the list 
 
     closeButton.setAttribute("class","close");

@@ -11,29 +11,85 @@ if (document.getElementById('content').children[3].innerHTML === "Tap cards to r
     for (card of document.getElementsByClassName("back")){
         card.click();
     }
-    document.getElementsByClassName('deckcard-container')[0].style.outline = '5px red solid';
 }
+try{
+    document.getElementsByClassName('deckcard-container')[0].style.outline = '5px red solid';
+}catch(err){}
 
 
 
-
-let counterFlip = 0;
+let counterJunk = 0;
 //starts the counter at 0
 
 var HotKeysPack = function(event){
-    if (event.key === '2') {
+    if (event.key === config.junk) {
         //if the "2" key is pressed
         event.preventDefault();
         //prevents usual keypress
         try{
-            document.getElementsByClassName('deckcard-container')[counterFlip].style.outline = '';
-            document.getElementsByClassName("button deckcard-junk-button danger ")[counterFlip].click();
-            document.getElementsByClassName('deckcard-container')[counterFlip+1].style.outline = '5px red solid';
+            let cards = document.getElementsByClassName('deckcard-container');
+            let rarity = cards[counterJunk].getElementsByClassName('front')[0].getAttribute('class').substring(24);
+            if (!config[rarity]){
+                cards[counterJunk].style.outline = '';
+                cards[counterJunk+1].style.outline = '5px red solid';
+                cards[counterJunk+1].scrollIntoView();
+                window.scrollBy(0,-100);
+                counterJunk = counterJunk +1;
+                return
+            }
+            if (cards[counterJunk].getElementsByClassName('deckcard-card-mv')[0] !== undefined && config.confirm_highMV){
+                if (parseFloat(cards[counterJunk].getElementsByClassName('deckcard-card-mv')[0].innerHTML.substring(3)) >= config.highMV){
+                    var MVConfirm = true;
+                }else{
+                    var MVConfirm = false;
+                }
+            }else{
+                var MVConfirm = false;
+            }
+            if (cards[counterJunk].getElementsByClassName('deckcard-card-buyers')[0] !== undefined && config.confirm_bid){
+                var BidConfirm = true;
+            }else{
+                var BidConfirm = false;
+            }
+            if (BidConfirm && MVConfirm){
+                if (!confirm('Are you sure you want to junk this card, it has a bid and a high MV?')){
+                    cards[counterJunk].style.outline = '';
+                    cards[counterJunk+1].style.outline = '5px red solid';
+                    cards[counterJunk+1].scrollIntoView();
+                    window.scrollBy(0,-100);
+                    counterJunk = counterJunk +1;
+                    return
+                }
+            }else if (BidConfirm){
+                if (!confirm('Are you sure you want to junk this card, it has a bid?')){
+                    cards[counterJunk].style.outline = '';
+                    cards[counterJunk+1].style.outline = '5px red solid';
+                    cards[counterJunk+1].scrollIntoView();
+                    window.scrollBy(0,-100);
+                    counterJunk = counterJunk +1;
+                    return
+                }
+            }else if (MVConfirm){
+                if (!confirm('Are you sure you want to junk this card, it has a high MV?')){
+                    cards[counterJunk].style.outline = '';
+                    cards[counterJunk+1].style.outline = '5px red solid';
+                    cards[counterJunk+1].scrollIntoView();
+                    window.scrollBy(0,-100);
+                    counterJunk = counterJunk +1;
+                    return
+                }
+            }
+            cards[counterJunk].style.outline = '';
+            document.getElementsByClassName("button deckcard-junk-button danger ")[counterJunk].click();
+            cards[counterJunk+1].style.outline = '5px red solid';
+            cards[counterJunk+1].scrollIntoView();
+            window.scrollBy(0,-100);
             //try and junk a card
-            counterFlip = counterFlip +1;
+            counterJunk = counterJunk +1;
             //increase the counter by 1
-        }catch(err){}        
-    }else if(event.key == '1'){
+        }catch(err){
+        }        
+    }else if(event.key == config.pack){
         //if the user clicks '1'
         document.onkeydown = undefined;
         document.onkeyup = undefined;
@@ -58,11 +114,15 @@ var HotKeysPack = function(event){
             document.getElementById('backInput').remove();
             //and stop any other buttons being clicked
         }
-    }else if(event.key == 'd'){
+    }else if(event.key == config.hold){
         //if user clicks 'd'
-        document.getElementsByClassName('deckcard-container')[counterFlip].style.outline = '';
-        document.getElementsByClassName('deckcard-container')[counterFlip+1].style.outline = '5px red solid';
-        counterFlip = counterFlip+1;
+        document.getElementsByClassName('deckcard-container')[counterJunk].style.outline = '';
+        try{
+        document.getElementsByClassName('deckcard-container')[counterJunk+1].style.outline = '5px red solid';
+        document.getElementsByClassName('deckcard-container')[counterJunk+1].scrollIntoView();
+        window.scrollBy(0,-100);
+        }catch(err){}
+        counterJunk = counterJunk+1;
         //increase the counter(can be used to skip a junk)
     }
 };
