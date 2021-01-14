@@ -35,6 +35,6 @@ if (document.location.href === 'https://www.nationstates.net/page=create_nation'
         document.getElementsByName('confirm_password')[0].value = message.password; 
         //sets the password and confirm password fields
     });
-    portsubmit.postMessage({'purpose':'Create Nation'});
+    portsubmit.postMessage();
     //requests the nations parameters from the background script
 }

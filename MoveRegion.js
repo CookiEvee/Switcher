@@ -7,11 +7,11 @@ The page is then changed to that region
 document.onkeyup = function(event){
     //adds a keybind
     if (event.key === config.move){
-        //when 'm' is pressed
+        //when the move key is pressed
         document.onkeydown = undefined;
         document.onkeyup = undefined;
-        backInput.remove();
-        nextInput.remove();
+        backInput.removeEventListener("click", loginback);
+        nextInput.removeEventListener("click", loginforward);
         //disables all possible inputs
         var portRegion = chrome.runtime.connect({name: "Region"});
         //sets up a port for requesting the region name which the nation wants to move to.

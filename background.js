@@ -13,16 +13,24 @@ chrome.runtime.onConnect.addListener(function(port){
     //connects and creates a port to transfer messages between the extension and content scripts
     port.onMessage.addListener(function(message) {
         if (port.name === 'Region'){
+            //if the port is for the region name
             let RegionalList = JSON.parse(localStorage.getItem('Settings'));
             port.postMessage(RegionalList.region);
+            //find the region name and send it back
         }else if (port.name === 'MoveRegion'){
+            //else if the port is the port for passing the region password
             let RegionalList = JSON.parse(localStorage.getItem('Settings'));
             port.postMessage(RegionalList.regionpassword);
-        }else if (message.purpose){
+            //find the password and send it
+        }else if (port.name === 'Create Nation'){
+            //else if the port is for getting information for creating a nation
             let NationInput = JSON.parse(localStorage.getItem('Settings'));
             port.postMessage(NationInput);
+            //send the dictionary of the entire information
             NationInput.start= String(parseInt(NationInput.start)+1);
-            localStorage.setItem('Settings',JSON.stringify(NationInput)); 
+            //increase the number for the puppet creator
+            localStorage.setItem('Settings',JSON.stringify(NationInput));
+            //send it back to storage 
         }else{
             //creates a listener for when a the Body sends a message to try and switch nations.
             var NationDetails;

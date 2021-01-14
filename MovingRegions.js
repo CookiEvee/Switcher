@@ -30,8 +30,8 @@ document.onkeyup= function(event){
         //when the button 'm' is clicked
         document.onkeydown = undefined;
         document.onkeyup = undefined;
-        backInput.remove();
-        nextInput.remove();
+        backInput.removeEventListener("click", loginback);
+        nextInput.removeEventListener("click", loginforward);
         //stops all other buttons from being pressed
         portMove.postMessage({});
         //sends a request for the password

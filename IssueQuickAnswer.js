@@ -32,9 +32,10 @@ document.onkeyup = function(event) {
         if (Link !== undefined){
             document.onkeydown = undefined;
             document.onkeyup = undefined;
+            //stops the user pressing a different key
             try{
-                document.getElementById('nextInput').remove();
-                document.getElementById('backInput').remove();
+                backInput.removeEventListener("click", loginback);
+                nextInput.removeEventListener("click", loginforward);
             }catch(err){}
             IssueButton.click();
             //if there is an issue, answer it
@@ -42,21 +43,24 @@ document.onkeyup = function(event) {
             document.onkeydown = undefined;
             document.onkeyup = undefined;
             try{
-                document.getElementById('nextInput').remove();
-                document.getElementById('backInput').remove();
+                backInput.removeEventListener("click", loginback);
+                nextInput.removeEventListener("click", loginforward);
             }catch(err){}
             document.location = '/page=deck';
             //otherwise go to the cards deck location
         }
-    }else if(event.key === '`'){
+    }else if(event.key === config.deck){
         document.location = '/page=deck';
+        //if the user presses the deck key, go to deck
     }
 }
 
 function AnswerIssue(){
     if (config.NoTemplate){
         document.location = '/page=enact_dilemma/dilemma='+IssueNumber+'/choice-0=1/template-overall=none';
+        //if the user has chosen no template, then go to the no template page
     }else{
         document.location = '/page=enact_dilemma/dilemma='+IssueNumber+'/choice-0=1';
+        //otherwise answer the issue normally
     }
 }
